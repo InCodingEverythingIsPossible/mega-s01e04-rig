@@ -32,5 +32,14 @@ export function createApp(config: RigConfig = loadConfig()) {
     );
   });
 
+  // Same reader and the same night check as the page, so the two never disagree (ADR 0001).
+  app.get('/api/digest/:night', (c) => {
+    const id = c.req.param('night');
+    if (!isNight(id)) return c.json({ error: 'not found' }, 404);
+    const night = readNight(config.runsDir, id);
+    if (!night) return c.json({ error: `no digest for ${id}` }, 404);
+    return c.json(night);
+  });
+
   return app;
 }
