@@ -23,8 +23,8 @@ export function StatusBoard({ status }: { status: Status }) {
             <li>
               <a href={`/digest/${n}`}>{n}</a>{' '}
               {status.counts[n]
-                ? `ok ${status.counts[n].ok} · retry ${status.counts[n].retry} · fail ${status.counts[n].fail}`
-                : '—'}
+                ? `ok ${status.counts[n].ok} Â· retry ${status.counts[n].retry} Â· fail ${status.counts[n].fail}`
+                : 'â€”'}
             </li>
           ))}
         </ul>

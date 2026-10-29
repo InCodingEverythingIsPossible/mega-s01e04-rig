@@ -17,7 +17,7 @@ describe('status board', () => {
     const html = await (await createApp(config).request('/')).text();
     expect(html).toContain('href="/digest/2026-10-28"');
     expect(html).toContain('href="/digest/2026-10-27"');
-    expect(html).toMatch(/ok \d+ · retry \d+ · fail \d+/);
+    expect(html).toMatch(/ok \d+ Â· retry \d+ Â· fail \d+/);
   });
 
   it('health answers with the lane id', async () => {
